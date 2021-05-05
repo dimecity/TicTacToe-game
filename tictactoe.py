@@ -31,7 +31,7 @@ def main_game():
 
         move = input()
 
-        if int(move) > 9:
+        if move.isnumeric() == False or int(move) > 9:
             print("Invalid input. Must enter a number from 1-9. Enter again.\n")
             move = input()
 
@@ -67,10 +67,14 @@ def main_game():
                 print_board(the_board)
                 print("GAME OVER!. {} WINS!".format(player))
                 break
-
-        if count == 9:
-            print("\nGame Over.\n")                
-            print("TIE!!")
+            elif the_board['7'] == the_board['8'] == the_board['9'] != ' ':
+                print_board(the_board)
+                print("GAME OVER! {} WINS!".format(player))
+                break
+            elif count == 9:
+                print("\nGame Over.")                
+                print("TIE!!\n")
+                break      
 
         if player == p_name1:
             player = p_name2
